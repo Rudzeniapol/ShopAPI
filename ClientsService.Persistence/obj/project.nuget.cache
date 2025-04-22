@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "HkF23Mq5z8A=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ffgg9\\OneDrive\\Desktop\\Infinite Learning\\TestTasks\\InnoShop\\ClientsService.Persistence\\ClientsService.Persistence.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ffgg9\\.nuget\\packages\\mediatr\\12.5.0\\mediatr.12.5.0.nupkg.sha512",
+    "C:\\Users\\ffgg9\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\ffgg9\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

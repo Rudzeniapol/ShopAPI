@@ -1,0 +1,17 @@
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Persistence\bin\Debug\net9.0\ClientsService.Persistence.deps.json
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Persistence\bin\Debug\net9.0\ClientsService.Persistence.dll
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Persistence\bin\Debug\net9.0\ClientsService.Persistence.pdb
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Persistence\bin\Debug\net9.0\ClientsService.Application.dll
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Persistence\bin\Debug\net9.0\ClientsService.Domain.dll
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Persistence\bin\Debug\net9.0\ClientsService.Application.pdb
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Persistence\bin\Debug\net9.0\ClientsService.Domain.pdb
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Persistence\obj\Debug\net9.0\ClientsService.Persistence.csproj.AssemblyReference.cache
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Persistence\obj\Debug\net9.0\ClientsService.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Persistence\obj\Debug\net9.0\ClientsService.Persistence.AssemblyInfoInputs.cache
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Persistence\obj\Debug\net9.0\ClientsService.Persistence.AssemblyInfo.cs
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Persistence\obj\Debug\net9.0\ClientsService.Persistence.csproj.CoreCompileInputs.cache
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Persistence\obj\Debug\net9.0\ClientsS.D31B14AE.Up2Date
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Persistence\obj\Debug\net9.0\ClientsService.Persistence.dll
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Persistence\obj\Debug\net9.0\refint\ClientsService.Persistence.dll
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Persistence\obj\Debug\net9.0\ClientsService.Persistence.pdb
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Persistence\obj\Debug\net9.0\ref\ClientsService.Persistence.dll

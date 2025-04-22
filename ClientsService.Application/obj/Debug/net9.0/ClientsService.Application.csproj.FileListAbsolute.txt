@@ -1,0 +1,15 @@
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Application\bin\Debug\net9.0\ClientsService.Application.deps.json
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Application\bin\Debug\net9.0\ClientsService.Application.dll
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Application\bin\Debug\net9.0\ClientsService.Application.pdb
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Application\bin\Debug\net9.0\ClientsService.Domain.dll
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Application\bin\Debug\net9.0\ClientsService.Domain.pdb
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Application\obj\Debug\net9.0\ClientsService.Application.csproj.AssemblyReference.cache
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Application\obj\Debug\net9.0\ClientsService.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Application\obj\Debug\net9.0\ClientsService.Application.AssemblyInfoInputs.cache
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Application\obj\Debug\net9.0\ClientsService.Application.AssemblyInfo.cs
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Application\obj\Debug\net9.0\ClientsService.Application.csproj.CoreCompileInputs.cache
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Application\obj\Debug\net9.0\ClientsS.4CAFE336.Up2Date
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Application\obj\Debug\net9.0\ClientsService.Application.dll
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Application\obj\Debug\net9.0\refint\ClientsService.Application.dll
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Application\obj\Debug\net9.0\ClientsService.Application.pdb
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Application\obj\Debug\net9.0\ref\ClientsService.Application.dll
