@@ -1,4 +1,5 @@
 ﻿using System.Collections.Immutable;
+using AutoMapper;
 using ClientsService.Application.DTOs;
 using ClientsService.Domain.Interfaces;
 using MediatR;
@@ -8,15 +9,18 @@ namespace ClientsService.Application.Queries.GetUsersQuery;
 public class GetUsersQueryHandler : IRequestHandler<GetUsersQuery, IEnumerable<UserDTO>>
 {
     private readonly IUserRepository _userRepository;
+    private readonly IMapper _mapper;
 
-    public GetUsersQueryHandler(IUserRepository userRepository)
+    public GetUsersQueryHandler(IUserRepository userRepository, IMapper mapper)
     {
         _userRepository = userRepository;
+        _mapper = mapper;
     }
 
-    public async Task<IEnumerable<UserDTO>> Handle(Queries.GetUsersQuery.GetUsersQuery request, CancellationToken cancellationToken)
+    public async Task<IEnumerable<UserDTO>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
     {
-        //implement this
-        return ImmutableArray<UserDTO>.Empty;
+        var users = await _userRepository.GetAllAsync(cancellationToken);
+        //map Users to UserDTOs with mapper
+        return ImmutableList<UserDTO>.Empty;
     }
 }

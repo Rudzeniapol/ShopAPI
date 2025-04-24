@@ -15,3 +15,4 @@ C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsServ
 C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Persistence\obj\Debug\net9.0\refint\ClientsService.Persistence.dll
 C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Persistence\obj\Debug\net9.0\ClientsService.Persistence.pdb
 C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Persistence\obj\Debug\net9.0\ref\ClientsService.Persistence.dll
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Persistence\obj\Debug\net9.0\ClientsService.Persistence.sourcelink.json

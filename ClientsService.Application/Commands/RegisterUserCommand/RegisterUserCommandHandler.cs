@@ -33,7 +33,7 @@ public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, T
             Username = request.RegisterUser.UserName,
             PasswordHash = hashedPassword,
             Role = request.RegisterUser.Role,
-            IsDeleted = false
+            IsActivated = true
         };
         await _userRepository.AddAsync(newUser, cancellationToken);
         return await _tokenService.GenerateJwtToken(newUser, false, cancellationToken);

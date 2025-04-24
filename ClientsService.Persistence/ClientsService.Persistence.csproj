@@ -7,13 +7,16 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Configurations\" />
-      <Folder Include="Services\" />
+      <ProjectReference Include="..\ClientsService.Application\ClientsService.Application.csproj" />
+      <ProjectReference Include="..\ClientsService.Domain\ClientsService.Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ClientsService.Application\ClientsService.Application.csproj" />
-      <ProjectReference Include="..\ClientsService.Domain\ClientsService.Domain.csproj" />
+      <PackageReference Include="BCrypt" Version="1.0.0" />
+      <PackageReference Include="BCrypt.Net" Version="0.1.0" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4" />
+      <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.0-preview.3.25171.5" />
+      <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.8.0" />
     </ItemGroup>
 
 </Project>

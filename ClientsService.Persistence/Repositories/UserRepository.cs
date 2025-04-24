@@ -1,20 +1,24 @@
 ﻿using ClientsService.Application.DTOs;
 using ClientsService.Domain.Interfaces;
 using ClientsService.Domain.Models;
+using ClientsService.Persistence.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace ClientsService.Persistence.Repositories;
-//Implement this with DB context
-public class UserRepository //: IUserRepository
+
+public class UserRepository : BaseRepository<User>, IUserRepository
 {
-    public Task AddAsync(User user, CancellationToken cancellationToken)
+    public UserRepository(ClientsDBContext context) : base(context)
     {
-        return Task.CompletedTask;
+    }
+    
+    public async Task<User?> GetUserByUserNameAsync(string username, CancellationToken cancellationToken = default)
+    {
+        return await _dbSet.FirstOrDefaultAsync(u => u.Username.Equals(username), cancellationToken);
     }
 
-    public async Task<User> GetByIdAsync(int id, CancellationToken cancellationToken)
+    public async Task<User?> GetUserByEmailAsync(string email, CancellationToken cancellationToken = default)
     {
-        return await Task.FromResult((User)null);
+        return await _dbSet.FirstOrDefaultAsync(u => u.Email.Equals(email), cancellationToken);
     }
-    
-    
 }

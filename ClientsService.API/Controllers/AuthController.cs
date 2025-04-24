@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
+﻿using ClientsService.Application.Commands.AddUserCommand;
+using ClientsService.Application.Commands.LoginUserCommand;
+using ClientsService.Application.DTOs;
+using MediatR;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,15 +12,24 @@ namespace ClientsService.API.Controllers;
 [Route("api/[controller]")]
 public class AuthController : ControllerBase
 {
-    [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
+    private readonly IMediator _mediator;
+
+    public AuthController(IMediator mediator)
     {
-        return Ok(loginRequest);
+        _mediator = mediator;
+    }
+    
+    [HttpPost("login")]
+    public async Task<ActionResult<TokenDTO>> Login([FromBody] LoginUserCommand command)
+    {
+        var tokens = await _mediator.Send(command);
+        return Ok(tokens);
     }
 
     [HttpPost("register")]
-    public async Task<IActionResult> Register([FromBody] RegisterRequest registerRequest)
+    public async Task<ActionResult<TokenDTO>> Register([FromBody] RegisterUserCommand command)
     {
-        return Ok(registerRequest);
+        var tokens = await _mediator.Send(command);
+        return Ok(tokens);
     }
 }

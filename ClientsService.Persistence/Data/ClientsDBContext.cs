@@ -1,7 +1,21 @@
-﻿namespace ClientsService.Persistence.Data;
+﻿using ClientsService.Domain.Models;
+using ClientsService.Persistence.Configurations;
+using Microsoft.EntityFrameworkCore;
 
-// Implement this
-public class ClientsDBContext
+namespace ClientsService.Persistence.Data;
+
+public class ClientsDBContext : DbContext
 {
-    
+    public ClientsDBContext(DbContextOptions<ClientsDBContext> options) : base(options)
+    {
+    }
+
+    public DbSet<User> Users { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfiguration(new UserConfiguration());
+        
+        base.OnModelCreating(modelBuilder);
+    }
 }

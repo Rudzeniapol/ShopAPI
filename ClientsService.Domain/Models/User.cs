@@ -2,7 +2,7 @@
 
 namespace ClientsService.Domain.Models;
 
-public class User : ISoftDelete
+public class User
 {
     public int Id { get; set; }
     public string Username { get; set; } = string.Empty;
@@ -14,6 +14,5 @@ public class User : ISoftDelete
     //Do I even need this field below?
     public DateTime RefreshTokenExpiryTime { get; set; }
     
-    public bool IsDeleted { get; set; }
-    public DateTimeOffset? DeletedAt { get; set; }
+    public bool IsActivated { get; set; }
 }
