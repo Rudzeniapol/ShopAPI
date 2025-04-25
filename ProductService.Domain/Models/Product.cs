@@ -1,4 +1,6 @@
-﻿namespace ProductService.Domain.Models;
+﻿using ClientsService.Domain.SoftDelete;
+
+namespace ProductService.Domain.Models;
 
 public class Product
 {

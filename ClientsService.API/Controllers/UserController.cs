@@ -68,7 +68,7 @@ public class UserController : ControllerBase
     {
         DeactivateUserCommand command = new DeactivateUserCommand()
         {
-            email = email
+            Email = email
         };
         await _mediator.Send(command, cancellationToken);
         return NoContent();
@@ -79,7 +79,7 @@ public class UserController : ControllerBase
     {
         ActivateUserCommand command = new ActivateUserCommand()
         {
-            email = email
+            Email = email
         };
         await _mediator.Send(command, cancellationToken);
         return NoContent();

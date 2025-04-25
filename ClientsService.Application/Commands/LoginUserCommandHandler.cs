@@ -20,8 +20,8 @@ public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, TokenDT
 
     public async Task<TokenDTO> Handle(LoginUserCommand request, CancellationToken cancellationToken)
     {
-        var user = await _userRepository.GetUserByEmailAsync(request.User.Email, cancellationToken);
-        if (user == null || !_passwordService.VerifyPassword(user.PasswordHash, request.User.Password))
+        var user = await _userRepository.GetUserByEmailAsync(request.LoginUser.Email, cancellationToken);
+        if (user == null || !_passwordService.VerifyPassword(user.PasswordHash, request.LoginUser.Password))
         {
             //Implement exception above (or change code)
             return null;

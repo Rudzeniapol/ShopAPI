@@ -14,7 +14,7 @@ public class ActivateUserCommandHandler : IRequestHandler<ActivateUserCommand>
 
     public async Task Handle(ActivateUserCommand request, CancellationToken cancellationToken)
     {
-        var user = await _userRepository.GetUserByEmailAsync(request.email, cancellationToken);
+        var user = await _userRepository.GetUserByEmailAsync(request.Email, cancellationToken);
         if (user == null)
         {
             //implement exception

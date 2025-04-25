@@ -4,5 +4,5 @@ namespace ClientsService.Application.Commands;
 
 public class ActivateUserCommand : IRequest
 {
-    public string email { get; set; }
+    public string Email { get; set; }
 }

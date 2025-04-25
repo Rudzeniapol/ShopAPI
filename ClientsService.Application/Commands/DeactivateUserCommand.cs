@@ -5,5 +5,5 @@ namespace ClientsService.Application.Commands;
 
 public class DeactivateUserCommand : IRequest
 {
-    public string email { get; set; }
+    public string Email { get; set; }
 }

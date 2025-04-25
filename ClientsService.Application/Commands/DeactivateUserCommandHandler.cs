@@ -15,7 +15,7 @@ public class DeactivateUserCommandHandler : IRequestHandler<DeactivateUserComman
 
     public async Task Handle(DeactivateUserCommand request, CancellationToken cancellationToken)
     {
-        var user = await _userRepository.GetUserByEmailAsync(request.email, cancellationToken);
+        var user = await _userRepository.GetUserByEmailAsync(request.Email, cancellationToken);
         if (user == null)
         {
             //implement exception

@@ -4,7 +4,7 @@ using ProductService.Domain.Models;
 
 namespace ProductService.Domain.Interfaces;
 
-public interface IProductRepository : IRepository<Product>, ISoftDelete
+public interface IProductRepository : IRepository<Product>
 {
     public Task<IEnumerable<Product>> GetProductsByUserIdAsync(string id, CancellationToken cancellationToken = default);
 }

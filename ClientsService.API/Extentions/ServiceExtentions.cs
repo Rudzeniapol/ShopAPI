@@ -103,8 +103,6 @@ public static class ServiceExtentions
         services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
         services.AddScoped<IUserRepository, UserRepository>();
         
-        services.AddScoped<IDatabaseInitializer, DatabaseInitializer>();
-        
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IPasswordService, PasswordService>();
 

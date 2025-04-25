@@ -12,4 +12,10 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="8.1.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Controllers\" />
+      <Folder Include="Extentions\" />
+      <Folder Include="Validators\" />
+    </ItemGroup>
+
 </Project>

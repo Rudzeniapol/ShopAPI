@@ -5,5 +5,5 @@ namespace ClientsService.Application.Commands;
 
 public class LoginUserCommand : IRequest<TokenDTO>
 {
-    public LoginUserDTO User { get; set; }
+    public LoginUserDTO LoginUser { get; set; }
 }
