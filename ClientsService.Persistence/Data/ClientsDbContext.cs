@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ClientsService.Persistence.Data;
 
-public class ClientsDBContext : DbContext
+public class ClientsDbContext : DbContext
 {
-    public ClientsDBContext(DbContextOptions<ClientsDBContext> options) : base(options)
+    public ClientsDbContext(DbContextOptions<ClientsDbContext> options) : base(options)
     {
     }
 

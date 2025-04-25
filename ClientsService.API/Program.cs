@@ -1,37 +1,34 @@
+using ClientsService.API.Extentions;
+using ClientsService.Application.DTOs.MappingProfiles;
+using ClientsService.Application.Services.Interfaces;
+using ClientsService.Persistence.Data;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddSwaggerGen(options =>
-{
-    options.SwaggerDoc("v1", new OpenApiInfo { Title = "ClientsService", Version = "v1" });
-    /*var xmlFile = $"{typeof(BorrowBookCommand).Assembly.GetName().Name}.xml";
-    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-    options.IncludeXmlComments(xmlPath); */
-    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-    {
-        Name = "Authorization",
-        Type = SecuritySchemeType.Http,
-        Scheme = "Bearer",
-        BearerFormat = "JWT",
-        In = ParameterLocation.Header,
-        Description = "Введите JWT-токен"
-    });
+builder.Services.ConfigureDatabaseContext(builder.Configuration);
+builder.Services.ConfigureAuthentication(builder.Configuration);
+builder.Services.ConfigureAuthorization();
+builder.Services.ConfigureDependencyInjection();
+builder.Services.ConfigureAutoMapper();
+//builder.Services.ConfigureValidation();
+//builder.Services.ConfigureRequestServices();
 
-    options.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" }
-            },
-            new string[] {}
-        }
-    });
-});
+builder.Services.AddMemoryCache();
+builder.Services.AddAuthorization();
+builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddControllers();
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 var app = builder.Build();
+    
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<ClientsDbContext>();
+    dbContext.Database.Migrate();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -40,5 +37,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+//app.UseStaticFiles(); <--- Dont need it for now
+app.UseAuthentication();
+app.UseAuthorization();
+
 app.UseHttpsRedirection();
+
+app.MapControllers();
 app.Run();

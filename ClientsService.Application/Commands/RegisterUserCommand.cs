@@ -2,7 +2,7 @@
 using ClientsService.Domain.Models;
 using MediatR;
 
-namespace ClientsService.Application.Commands.AddUserCommand;
+namespace ClientsService.Application.Commands;
 
 public class RegisterUserCommand : IRequest<TokenDTO>
 {

@@ -3,7 +3,7 @@ using ClientsService.Application.Services.Interfaces;
 using ClientsService.Domain.Interfaces;
 using MediatR;
 
-namespace ClientsService.Application.Commands.UpdateUserCommand;
+namespace ClientsService.Application.Commands;
 
 public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand>
 {

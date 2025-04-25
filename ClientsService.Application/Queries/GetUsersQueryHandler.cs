@@ -4,7 +4,7 @@ using ClientsService.Application.DTOs;
 using ClientsService.Domain.Interfaces;
 using MediatR;
 
-namespace ClientsService.Application.Queries.GetUsersQuery;
+namespace ClientsService.Application.Queries;
 
 public class GetUsersQueryHandler : IRequestHandler<GetUsersQuery, IEnumerable<UserDTO>>
 {
@@ -20,7 +20,6 @@ public class GetUsersQueryHandler : IRequestHandler<GetUsersQuery, IEnumerable<U
     public async Task<IEnumerable<UserDTO>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
     {
         var users = await _userRepository.GetAllAsync(cancellationToken);
-        //map Users to UserDTOs with mapper
-        return ImmutableList<UserDTO>.Empty;
+        return _mapper.Map<IEnumerable<UserDTO>>(users);
     }
 }

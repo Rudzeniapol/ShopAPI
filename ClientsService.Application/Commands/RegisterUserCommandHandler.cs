@@ -4,7 +4,7 @@ using ClientsService.Domain.Interfaces;
 using ClientsService.Domain.Models;
 using MediatR;
 
-namespace ClientsService.Application.Commands.AddUserCommand;
+namespace ClientsService.Application.Commands;
 
 public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, TokenDTO>
 {
@@ -24,7 +24,8 @@ public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, T
         var user = await _userRepository.GetUserByEmailAsync(request.RegisterUser.Email);
         if (user != null)
         {
-            throw new Exception(); //Implement exceptions
+            return null;
+            //Implement exceptions
         }
         var hashedPassword = _passwordService.HashPassword(request.RegisterUser.Password);
         var newUser = new User

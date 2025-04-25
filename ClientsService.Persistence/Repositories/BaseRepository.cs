@@ -6,10 +6,10 @@ namespace ClientsService.Persistence.Repositories;
 
 public class BaseRepository<T> : IRepository<T> where T : class
 {
-    protected readonly ClientsDBContext _context;
+    protected readonly ClientsDbContext _context;
     protected readonly DbSet<T> _dbSet;
     
-    public BaseRepository(ClientsDBContext context)
+    public BaseRepository(ClientsDbContext context)
     {
         _context = context;
         _dbSet = _context.Set<T>();

@@ -1,7 +1,7 @@
 ﻿using System.Windows.Input;
 using MediatR;
 
-namespace ClientsService.Application.Commands.DeactivateUserCommand;
+namespace ClientsService.Application.Commands;
 
 public class DeactivateUserCommand : IRequest
 {

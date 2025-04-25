@@ -1,6 +1,4 @@
-﻿using ClientsService.Domain.SoftDelete;
-
-namespace ClientsService.Application.DTOs;
+﻿namespace ClientsService.Application.DTOs;
 
 public record RegisterUserDTO
 {

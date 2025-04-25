@@ -1,7 +1,7 @@
-﻿using ClientsService.Application.Commands.UpdateUserCommand;
+﻿using ClientsService.Application.Commands;
 using ClientsService.Application.DTOs;
-using ClientsService.Application.Queries.GetUserByEmailQuery;
-using ClientsService.Application.Queries.GetUsersQuery;
+using ClientsService.Application.Queries;
+using ClientsService.Application.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -40,9 +40,47 @@ public class UserController : ControllerBase
     }
 
     [HttpPut("{email}")]
-    public async Task<ActionResult> UpdateUser(UpdateUserCommand command,
+    public async Task<ActionResult> UpdateUser(string email, string newUserName,
         CancellationToken cancellationToken)
     {
+        UpdateUserCommand command = new UpdateUserCommand()
+        {
+            Email = email,
+            NewUserName = newUserName
+        };
+        await _mediator.Send(command, cancellationToken);
+        return NoContent();
+    }
+
+    [HttpDelete("{email}")]
+    public async Task<ActionResult> DeleteUser(string email, CancellationToken cancellationToken)
+    {
+        DeleteUserCommand command = new DeleteUserCommand()
+        {
+            Email = email
+        };
+        await _mediator.Send(command, cancellationToken);
+        return NoContent();
+    }
+
+    [HttpPut("{email}/deactivation")]
+    public async Task<ActionResult> DeactivateUser(string email, CancellationToken cancellationToken)
+    {
+        DeactivateUserCommand command = new DeactivateUserCommand()
+        {
+            email = email
+        };
+        await _mediator.Send(command, cancellationToken);
+        return NoContent();
+    }
+    
+    [HttpPut("{email}/activation")]
+    public async Task<ActionResult> ActivateUser(string email, CancellationToken cancellationToken)
+    {
+        ActivateUserCommand command = new ActivateUserCommand()
+        {
+            email = email
+        };
         await _mediator.Send(command, cancellationToken);
         return NoContent();
     }

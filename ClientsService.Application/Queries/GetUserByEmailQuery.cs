@@ -1,7 +1,7 @@
 ﻿using ClientsService.Application.DTOs;
 using MediatR;
 
-namespace ClientsService.Application.Queries.GetUserByEmailQuery;
+namespace ClientsService.Application.Queries;
 
 public class GetUserByEmailQuery : IRequest<UserDTO>
 {

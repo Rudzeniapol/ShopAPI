@@ -1,10 +1,9 @@
-﻿using ClientsService.Application.Commands.AddUserCommand;
-using ClientsService.Application.DTOs;
+﻿using ClientsService.Application.DTOs;
 using ClientsService.Application.Services.Interfaces;
 using ClientsService.Domain.Interfaces;
 using MediatR;
 
-namespace ClientsService.Application.Commands.LoginUserCommand;
+namespace ClientsService.Application.Commands;
 
 public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, TokenDTO>
 {
@@ -21,10 +20,12 @@ public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, TokenDT
 
     public async Task<TokenDTO> Handle(LoginUserCommand request, CancellationToken cancellationToken)
     {
-        var user = await _userRepository.GetUserByEmailAsync(request.User.Email, cancellationToken);    
-        if (user == null || !_passwordService.VerifyPassword(user.PasswordHash,request.User.Password))
-            throw new Exception($"Пользователь с почтой {request.User.Email} не найден"); 
+        var user = await _userRepository.GetUserByEmailAsync(request.User.Email, cancellationToken);
+        if (user == null || !_passwordService.VerifyPassword(user.PasswordHash, request.User.Password))
+        {
             //Implement exception above (or change code)
+            return null;
+        }
         return await _tokenService.GenerateJwtToken(user, true, cancellationToken);
     }
 }

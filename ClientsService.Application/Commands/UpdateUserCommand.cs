@@ -1,7 +1,7 @@
 ﻿using ClientsService.Application.DTOs;
 using MediatR;
 
-namespace ClientsService.Application.Commands.UpdateUserCommand;
+namespace ClientsService.Application.Commands;
 
 public class UpdateUserCommand : IRequest
 {

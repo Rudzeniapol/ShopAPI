@@ -1,6 +1,4 @@
-﻿using ClientsService.Domain.SoftDelete;
-
-namespace ClientsService.Domain.Models;
+﻿namespace ClientsService.Domain.Models;
 
 public class User
 {

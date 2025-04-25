@@ -2,7 +2,7 @@
 using ClientsService.Domain.Interfaces;
 using MediatR;
 
-namespace ClientsService.Application.Commands.DeactivateUserCommand;
+namespace ClientsService.Application.Commands;
 
 public class DeactivateUserCommandHandler : IRequestHandler<DeactivateUserCommand>
 {

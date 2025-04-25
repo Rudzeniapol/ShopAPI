@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace ClientsService.Application.Commands.ActivateUserCommand;
+namespace ClientsService.Application.Commands;
 
 public class ActivateUserCommand : IRequest
 {

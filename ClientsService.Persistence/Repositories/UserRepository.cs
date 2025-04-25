@@ -8,7 +8,7 @@ namespace ClientsService.Persistence.Repositories;
 
 public class UserRepository : BaseRepository<User>, IUserRepository
 {
-    public UserRepository(ClientsDBContext context) : base(context)
+    public UserRepository(ClientsDbContext context) : base(context)
     {
     }
     

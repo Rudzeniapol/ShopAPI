@@ -7,10 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="DTOs\MappingProfiles\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\ClientsService.Domain\ClientsService.Domain.csproj" />
     </ItemGroup>
 
