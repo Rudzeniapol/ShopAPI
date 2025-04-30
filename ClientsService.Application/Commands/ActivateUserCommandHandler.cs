@@ -1,4 +1,6 @@
-﻿using ClientsService.Domain.Interfaces;
+﻿using ClientsService.Application.Clients;
+using ClientsService.Application.Exceptions;
+using ClientsService.Domain.Interfaces;
 using MediatR;
 
 namespace ClientsService.Application.Commands;
@@ -6,10 +8,12 @@ namespace ClientsService.Application.Commands;
 public class ActivateUserCommandHandler : IRequestHandler<ActivateUserCommand>
 {
     private readonly IUserRepository _userRepository;
-
-    public ActivateUserCommandHandler(IUserRepository userRepository)
+    private readonly ProductServiceClient _productServiceClient;
+    
+    public ActivateUserCommandHandler(IUserRepository userRepository, ProductServiceClient productServiceClient)
     {
         _userRepository = userRepository;
+        _productServiceClient = productServiceClient;
     }
 
     public async Task Handle(ActivateUserCommand request, CancellationToken cancellationToken)
@@ -17,9 +21,9 @@ public class ActivateUserCommandHandler : IRequestHandler<ActivateUserCommand>
         var user = await _userRepository.GetUserByEmailAsync(request.Email, cancellationToken);
         if (user == null)
         {
-            //implement exception
-            return;
+            throw new NotFoundException("User with this email does not exist");
         }
+        await _productServiceClient.ReturnAsync(cancellationToken);
         user.IsActivated = true;
         await _userRepository.UpdateAsync(user, cancellationToken);
     }

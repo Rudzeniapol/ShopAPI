@@ -1,4 +1,5 @@
-﻿using ClientsService.Domain.Interfaces;
+﻿using ClientsService.Application.Exceptions;
+using ClientsService.Domain.Interfaces;
 using MediatR;
 
 namespace ClientsService.Application.Commands;
@@ -17,8 +18,7 @@ public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand>
         var userToDelete = await _userRepository.GetUserByEmailAsync(request.Email, cancellationToken);
         if (userToDelete == null)
         {
-            return;
-            //implement exception
+            throw new NotFoundException("User with this email does not exist");
         }
         await _userRepository.DeleteAsync(userToDelete, cancellationToken);
     }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ClientsService.Application.DTOs;
+using ClientsService.Application.Exceptions;
 using ClientsService.Application.Services.Interfaces;
 using ClientsService.Domain.Interfaces;
 using MediatR;
@@ -22,8 +23,7 @@ public class GetUserByEmailQueryHandler : IRequestHandler<GetUserByEmailQuery, U
         var user = await _userRepository.GetUserByEmailAsync(request.Email, cancellationToken);
         if (user == null)
         {
-            return null;
-            //implement exception
+            throw new NotFoundException("User with this email does not exist");
         }
         return _mapper.Map<UserDTO>(user);
     }

@@ -1,4 +1,5 @@
 ﻿using ClientsService.Application.DTOs;
+using ClientsService.Application.Exceptions;
 using ClientsService.Application.Services.Interfaces;
 using ClientsService.Domain.Interfaces;
 using ClientsService.Domain.Models;
@@ -24,8 +25,7 @@ public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, T
         var user = await _userRepository.GetUserByEmailAsync(request.RegisterUser.Email);
         if (user != null)
         {
-            return null;
-            //Implement exceptions
+            throw new EntityExistsException("User with this email already exists");
         }
         var hashedPassword = _passwordService.HashPassword(request.RegisterUser.Password);
         var newUser = new User

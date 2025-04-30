@@ -20,7 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProductsTests", "ProductsTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientsService.Domain", "ClientsService.Domain\ClientsService.Domain.csproj", "{3C3D366F-1B8F-45D7-B9EC-DBE1C03D6638}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductService.Domain", "ProductService.Domain\ProductService.Domain.csproj", "{5EC8091B-9D81-432F-9B15-CEB09FD3FD0C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductsService.Domain", "ProductsService.Domain\ProductsService.Domain.csproj", "{5EC8091B-9D81-432F-9B15-CEB09FD3FD0C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductsService.API", "ProductsService.API\ProductsService.API.csproj", "{B4A0778C-C49C-4A9C-A0F7-A5CFA1023CE1}"
 EndProject
@@ -32,9 +32,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientsService.Application"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientsService.Persistence", "ClientsService.Persistence\ClientsService.Persistence.csproj", "{7E98E999-BF2D-49C5-A17E-172B325F18B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductService.Application", "ProductService.Application\ProductService.Application.csproj", "{F20E01EF-6B9A-401F-B616-22A424D78B76}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductsService.Application", "ProductsService.Application\ProductsService.Application.csproj", "{F20E01EF-6B9A-401F-B616-22A424D78B76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductService.Persistence", "ProductService.Persistence\ProductService.Persistence.csproj", "{92E34ED2-0FF3-4C74-9CC4-B516F322F52D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductsService.Persistence", "ProductsService.Persistence\ProductsService.Persistence.csproj", "{92E34ED2-0FF3-4C74-9CC4-B516F322F52D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

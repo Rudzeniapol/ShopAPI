@@ -1,7 +1,10 @@
 using ClientsService.API.Extentions;
+using ClientsService.API.Middlewares;
 using ClientsService.Application.DTOs.MappingProfiles;
+using ClientsService.Application.Exceptions;
 using ClientsService.Application.Services.Interfaces;
 using ClientsService.Persistence.Data;
+using Hellang.Middleware.ProblemDetails;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -12,9 +15,11 @@ builder.Services.ConfigureAuthentication(builder.Configuration);
 builder.Services.ConfigureAuthorization();
 builder.Services.ConfigureDependencyInjection();
 builder.Services.ConfigureAutoMapper();
-//builder.Services.ConfigureValidation();
-//builder.Services.ConfigureRequestServices();
+builder.Services.ConfigureValidation();
+builder.Services.ConfigureHttpClient(builder.Configuration);
 
+//builder.Services.ConfigureRequestServices();
+builder.Services.AddHttpContextAccessor(); 
 builder.Services.AddMemoryCache();
 builder.Services.AddAuthorization();
 builder.Services.AddEndpointsApiExplorer();
@@ -37,6 +42,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseMiddleware<ExceptionMiddleware>();
 //app.UseStaticFiles(); <--- Dont need it for now
 app.UseAuthentication();
 app.UseAuthorization();

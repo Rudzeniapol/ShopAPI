@@ -1,4 +1,5 @@
 ﻿using ClientsService.Application.DTOs;
+using ClientsService.Application.Exceptions;
 using ClientsService.Application.Services.Interfaces;
 using ClientsService.Domain.Interfaces;
 using MediatR;
@@ -23,8 +24,7 @@ public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, TokenDT
         var user = await _userRepository.GetUserByEmailAsync(request.LoginUser.Email, cancellationToken);
         if (user == null || !_passwordService.VerifyPassword(user.PasswordHash, request.LoginUser.Password))
         {
-            //Implement exception above (or change code)
-            return null;
+            throw new NotFoundException("Invalid login information");
         }
         return await _tokenService.GenerateJwtToken(user, true, cancellationToken);
     }

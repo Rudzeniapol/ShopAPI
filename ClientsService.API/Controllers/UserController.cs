@@ -1,7 +1,6 @@
 ﻿using ClientsService.Application.Commands;
 using ClientsService.Application.DTOs;
 using ClientsService.Application.Queries;
-using ClientsService.Application.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -20,6 +19,7 @@ public class UserController : ControllerBase
         _mediator = mediator;
     }   
     
+    [Authorize(Policy = "AllUsers")]
     [HttpGet]
     public async Task<ActionResult<IEnumerable<RegisterUserDTO>>> GetUsers(CancellationToken cancellationToken)
     {
@@ -28,6 +28,7 @@ public class UserController : ControllerBase
         return Ok(users);
     }
     
+    [Authorize(Policy = "AllUsers")]
     [HttpGet("{email}")]
     public async Task<ActionResult<UserDTO>> GetUserByEmail(string email, CancellationToken cancellationToken)
     {
@@ -39,6 +40,7 @@ public class UserController : ControllerBase
         return Ok(user);
     }
 
+    [Authorize(Policy = "AdminOnly")]
     [HttpPut("{email}")]
     public async Task<ActionResult> UpdateUser(string email, string newUserName,
         CancellationToken cancellationToken)
@@ -52,6 +54,7 @@ public class UserController : ControllerBase
         return NoContent();
     }
 
+    [Authorize(Policy = "AdminOnly")]
     [HttpDelete("{email}")]
     public async Task<ActionResult> DeleteUser(string email, CancellationToken cancellationToken)
     {
@@ -63,6 +66,7 @@ public class UserController : ControllerBase
         return NoContent();
     }
 
+    [Authorize(Policy = "AdminOnly")]
     [HttpPut("{email}/deactivation")]
     public async Task<ActionResult> DeactivateUser(string email, CancellationToken cancellationToken)
     {
@@ -74,6 +78,7 @@ public class UserController : ControllerBase
         return NoContent();
     }
     
+    [Authorize(Policy = "AdminOnly")]
     [HttpPut("{email}/activation")]
     public async Task<ActionResult> ActivateUser(string email, CancellationToken cancellationToken)
     {

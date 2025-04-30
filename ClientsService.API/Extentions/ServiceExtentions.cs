@@ -1,5 +1,9 @@
-﻿using System.Text;
+﻿using System.Collections.Immutable;
+using System.Net.Http.Headers;
+using System.Text;
 using AutoMapper;
+using ClientsService.API.Validators;
+using ClientsService.Application.Clients;
 using ClientsService.Application.Commands;
 using ClientsService.Application.DTOs;
 using ClientsService.Application.DTOs.MappingProfiles;
@@ -10,11 +14,14 @@ using ClientsService.Persistence.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using ClientsService.Persistence.Repositories;
 using ClientsService.Persistence.Services;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Hellang.Middleware.ProblemDetails;
 
 namespace ClientsService.API.Extentions;
 
@@ -22,7 +29,7 @@ public static class ServiceExtentions
 {
     public static IServiceCollection ConfigureAuthentication(this IServiceCollection services, IConfiguration configuration)
     {
-        var jwtKey = configuration["Jwt:Key"] ?? throw new NullReferenceException(); //Implement exceptions
+        var jwtKey = configuration["Jwt:Key"] ?? throw new NullReferenceException();
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
@@ -46,7 +53,7 @@ public static class ServiceExtentions
     {
         services.AddSwaggerGen(c =>
         {
-            c.SwaggerDoc("v1", new OpenApiInfo { Title = "LibraryAPI", Version = "v1" });
+            c.SwaggerDoc("v1", new OpenApiInfo { Title = "InnoShop.Clients", Version = "v1" });
             
             var xmlFile = $"{typeof(DeleteUserCommand).Assembly.GetName().Name}.xml";
             var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
@@ -56,10 +63,16 @@ public static class ServiceExtentions
         return services;
     }
     
+    public static IServiceCollection ConfigureValidation(this IServiceCollection services)
+    {
+        services.AddValidatorsFromAssemblyContaining<RegisterUserCommandValidator>();
+        services.AddFluentValidationAutoValidation();
+        return services;
+    }
+    
     public static IServiceCollection ConfigureDatabaseContext(this IServiceCollection services, IConfiguration configuration)
     {
         var connectionString = configuration.GetConnectionString("DefaultConnection");
-        //Implement SQL Database below
         services.AddDbContext<ClientsDbContext>(options => options.UseSqlServer(connectionString));
         return services;
     }
@@ -98,6 +111,18 @@ public static class ServiceExtentions
         return services;
     }
 
+    public static IServiceCollection ConfigureHttpClient(this IServiceCollection services, IConfiguration configuration)
+    {
+        var productUri = configuration["Uri:ProductService"] ?? throw new NullReferenceException();
+        services.AddHttpClient<ProductServiceClient>(client =>
+        {
+            client.BaseAddress = new Uri(productUri);
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        });
+        
+        return services;
+    }
+    
     public static IServiceCollection ConfigureDependencyInjection(this IServiceCollection services)
     {
         services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));

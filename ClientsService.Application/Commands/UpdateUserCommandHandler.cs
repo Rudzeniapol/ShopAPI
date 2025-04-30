@@ -1,4 +1,5 @@
 ﻿using ClientsService.Application.DTOs;
+using ClientsService.Application.Exceptions;
 using ClientsService.Application.Services.Interfaces;
 using ClientsService.Domain.Interfaces;
 using MediatR;
@@ -19,8 +20,7 @@ public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand>
         var user = await _userRepository.GetUserByEmailAsync(request.Email, cancellationToken);
         if (user == null)
         {
-            //implement exception
-            return;
+            throw new NotFoundException("User not found");
         }
         user.Username = request.NewUserName;
         await _userRepository.UpdateAsync(user, cancellationToken);
