@@ -1,11 +1,12 @@
 ﻿using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using ClientsService.Application.Clients.Interfaces;
 using ClientsService.Application.Exceptions;
 using Microsoft.AspNetCore.Http;
 
 namespace ClientsService.Application.Clients;
 
-public class ProductServiceClient
+public class ProductServiceClient : IProductServiceClient
 {
     private readonly HttpClient _httpClient;
     private readonly IHttpContextAccessor _httpContextAccessor;

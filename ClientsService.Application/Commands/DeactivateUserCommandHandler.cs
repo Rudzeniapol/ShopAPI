@@ -1,4 +1,5 @@
 ﻿using ClientsService.Application.Clients;
+using ClientsService.Application.Clients.Interfaces;
 using ClientsService.Application.DTOs;
 using ClientsService.Application.Exceptions;
 using ClientsService.Application.Services.Interfaces;

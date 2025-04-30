@@ -15,7 +15,7 @@ public class UserMappingProfile : Profile
             .ForMember(dest => dest.RefreshToken, opt => opt.Ignore())
             .ForMember(dest => dest.RefreshTokenExpiryTime, opt => opt.Ignore())
             .ForMember(dest => dest.PasswordHash, opt => opt.Ignore())
-            .ForMember(dest => dest.IsActivated, opt => opt.Ignore())
+            .ForMember(dest => dest.IsActivated, opt => opt.MapFrom(s => s.IsActive))
             .ReverseMap();
     }
 }

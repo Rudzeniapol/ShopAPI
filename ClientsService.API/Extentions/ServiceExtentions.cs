@@ -1,9 +1,9 @@
-﻿using System.Collections.Immutable;
-using System.Net.Http.Headers;
+﻿using System.Net.Http.Headers;
 using System.Text;
 using AutoMapper;
 using ClientsService.API.Validators;
 using ClientsService.Application.Clients;
+using ClientsService.Application.Clients.Interfaces;
 using ClientsService.Application.Commands;
 using ClientsService.Application.DTOs;
 using ClientsService.Application.DTOs.MappingProfiles;
@@ -18,10 +18,8 @@ using FluentValidation;
 using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Hellang.Middleware.ProblemDetails;
 
 namespace ClientsService.API.Extentions;
 
@@ -130,7 +128,8 @@ public static class ServiceExtentions
         
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IPasswordService, PasswordService>();
-
+        //services.AddScoped<IProductServiceClient, ProductServiceClient>();
+        
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
 
         services.AddScoped<IRequestHandler<ActivateUserCommand>, ActivateUserCommandHandler>();

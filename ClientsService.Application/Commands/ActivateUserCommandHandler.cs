@@ -1,4 +1,5 @@
 ﻿using ClientsService.Application.Clients;
+using ClientsService.Application.Clients.Interfaces;
 using ClientsService.Application.Exceptions;
 using ClientsService.Domain.Interfaces;
 using MediatR;

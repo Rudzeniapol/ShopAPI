@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Net;
+using Azure.Core;
 using FluentValidation;
 using Microsoft.IdentityModel.Tokens;
 using ProductService.Application.Exceptions;
