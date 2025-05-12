@@ -1,0 +1,74 @@
+﻿version: '3.8'
+
+services:
+  clients-service:
+    image: clients-service
+    container_name: clients-service
+    build:
+      context: .
+      dockerfile: ClientsService.API/Dockerfile
+    ports:
+      - "8888:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings__DefaultConnection=Server=client-db,1433;Database=InnoShopClientsDB;User Id=sa;Password=Passw0rd;TrustServerCertificate=True;
+    depends_on:
+      - client-db
+    networks:
+      - app-network
+
+  client-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: client-db
+    hostname: client-db
+    environment:
+      ACCEPT_EULA: 'Y'
+      MSSQL_SA_PASSWORD: 'Passw0rd'
+      MSSQL_PID: 'Developer'
+      MSSQL_TCP_PORT: 1433
+    ports:
+      - "1433:1433"
+    volumes:
+      - client-sql_data:/var/opt/mssql
+    networks:
+      - app-network
+
+  products-service:
+    image: products-service
+    container_name: products-service
+    build:
+      context: .
+      dockerfile: ProductsService.API/Dockerfile
+    ports:
+      - "5555:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings__DefaultConnection=Server=product-db,1433;Database=InnoShopProductsDB;User Id=sa;Password=Passw0rd;TrustServerCertificate=True;
+    depends_on:
+      - product-db
+    networks:
+      - app-network
+
+  product-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: product-db
+    hostname: product-db
+    environment:
+      ACCEPT_EULA: 'Y'
+      MSSQL_SA_PASSWORD: 'Passw0rd'
+      MSSQL_PID: 'Developer'
+      MSSQL_TCP_PORT: 1433
+    ports:
+      - "1434:1433"
+    volumes:
+      - product-sql_data:/var/opt/mssql
+    networks:
+      - app-network
+
+volumes:
+  client-sql_data:
+  product-sql_data:
+
+networks:
+  app-network:
+    driver: bridge

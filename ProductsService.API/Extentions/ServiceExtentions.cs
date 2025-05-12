@@ -46,9 +46,9 @@ public static class ServiceExtentions
         {
             c.SwaggerDoc("v1", new OpenApiInfo { Title = "InnoShop.Products", Version = "v1" });
             
-            var xmlFile = $"{typeof(DeleteProductCommand).Assembly.GetName().Name}.xml";
+            /*var xmlFile = $"{typeof(DeleteProductCommand).Assembly.GetName().Name}.xml";
             var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-            c.IncludeXmlComments(xmlPath);
+            c.IncludeXmlComments(xmlPath);*/
         });
         
         return services;
@@ -121,6 +121,21 @@ public static class ServiceExtentions
         services.AddAutoMapper(typeof(ProductMappingProfile).Assembly);
         var mapper = services.BuildServiceProvider().GetRequiredService<IMapper>();
         mapper.ConfigurationProvider.AssertConfigurationIsValid();
+        return services;
+    }
+    
+    public static IServiceCollection ConfigureCors(this IServiceCollection services)
+    {
+        services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAll", policy =>
+            {
+                policy.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            });
+        });
+        
         return services;
     }
 }

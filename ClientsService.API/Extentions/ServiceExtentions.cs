@@ -53,9 +53,9 @@ public static class ServiceExtentions
         {
             c.SwaggerDoc("v1", new OpenApiInfo { Title = "InnoShop.Clients", Version = "v1" });
             
-            var xmlFile = $"{typeof(DeleteUserCommand).Assembly.GetName().Name}.xml";
+            /*var xmlFile = $"{typeof(DeleteUserCommand).Assembly.GetName().Name}.xml";
             var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-            c.IncludeXmlComments(xmlPath);
+            c.IncludeXmlComments(xmlPath);*/
         });
         
         return services;
@@ -112,7 +112,7 @@ public static class ServiceExtentions
     public static IServiceCollection ConfigureHttpClient(this IServiceCollection services, IConfiguration configuration)
     {
         var productUri = configuration["Uri:ProductService"] ?? throw new NullReferenceException();
-        services.AddHttpClient<ProductServiceClient>(client =>
+        services.AddHttpClient<IProductServiceClient, ProductServiceClient>(client =>
         {
             client.BaseAddress = new Uri(productUri);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -149,6 +149,21 @@ public static class ServiceExtentions
         services.AddAutoMapper(typeof(UserMappingProfile).Assembly);
         var mapper = services.BuildServiceProvider().GetRequiredService<IMapper>();
         mapper.ConfigurationProvider.AssertConfigurationIsValid();
+        return services;
+    }
+
+    public static IServiceCollection ConfigureCors(this IServiceCollection services)
+    {
+        services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAll", policy =>
+            {
+                policy.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            });
+        });
+        
         return services;
     }
 }

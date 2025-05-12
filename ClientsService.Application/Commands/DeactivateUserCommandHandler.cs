@@ -11,9 +11,9 @@ namespace ClientsService.Application.Commands;
 public class DeactivateUserCommandHandler : IRequestHandler<DeactivateUserCommand>
 {
     private readonly IUserRepository _userRepository;
-    private readonly ProductServiceClient _productServiceClient;
+    private readonly IProductServiceClient _productServiceClient;
 
-    public DeactivateUserCommandHandler(IUserRepository userRepository, ProductServiceClient productServiceClient)
+    public DeactivateUserCommandHandler(IUserRepository userRepository, IProductServiceClient productServiceClient)
     {
         _userRepository = userRepository;
         _productServiceClient = productServiceClient;

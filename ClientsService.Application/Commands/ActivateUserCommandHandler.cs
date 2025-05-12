@@ -9,9 +9,9 @@ namespace ClientsService.Application.Commands;
 public class ActivateUserCommandHandler : IRequestHandler<ActivateUserCommand>
 {
     private readonly IUserRepository _userRepository;
-    private readonly ProductServiceClient _productServiceClient;
+    private readonly IProductServiceClient _productServiceClient;
     
-    public ActivateUserCommandHandler(IUserRepository userRepository, ProductServiceClient productServiceClient)
+    public ActivateUserCommandHandler(IUserRepository userRepository, IProductServiceClient productServiceClient)
     {
         _userRepository = userRepository;
         _productServiceClient = productServiceClient;
