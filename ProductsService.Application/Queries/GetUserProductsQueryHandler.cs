@@ -5,12 +5,12 @@ using ProductService.Domain.Interfaces;
 
 namespace ProductService.Application.Queries;
 
-public class GetUserProductQueryHandler : IRequestHandler<GetUserProductsQuery, IEnumerable<ProductDTO>>
+public class GetUserProductsQueryHandler : IRequestHandler<GetUserProductsQuery, IEnumerable<ProductDTO>>
 {
     private readonly IProductRepository _productRepository;
     private readonly IMapper _mapper;
 
-    public GetUserProductQueryHandler(IProductRepository productRepository, IMapper mapper)
+    public GetUserProductsQueryHandler(IProductRepository productRepository, IMapper mapper)
     {
         _productRepository = productRepository;
         _mapper = mapper;

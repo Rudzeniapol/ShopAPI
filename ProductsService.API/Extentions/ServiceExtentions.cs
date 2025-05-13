@@ -70,7 +70,7 @@ public static class ServiceExtentions
         
         services.AddScoped<IRequestHandler<GetAllProductsQuery, IEnumerable<ProductDTO>>, GetAllProductsQueryHandler>();
         services
-            .AddScoped<IRequestHandler<GetUserProductsQuery, IEnumerable<ProductDTO>>, GetUserProductQueryHandler>();
+            .AddScoped<IRequestHandler<GetUserProductsQuery, IEnumerable<ProductDTO>>, GetUserProductsQueryHandler>();
         
         return services;
     }
