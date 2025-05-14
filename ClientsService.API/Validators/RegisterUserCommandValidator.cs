@@ -9,6 +9,10 @@ public class RegisterUserCommandValidator : AbstractValidator<RegisterUserComman
 
     public RegisterUserCommandValidator()
     {
+        RuleFor(x => x.RegisterUser.Email)
+            .NotEmpty().WithMessage("Email is required.")
+            .EmailAddress().WithMessage("Invalid email format.");
+        
         RuleFor(x => x.RegisterUser.Role)
             .NotEmpty().WithMessage("Роль обязательна")
             .Must(role => AllowedRoles.Contains(role.ToUpper()))

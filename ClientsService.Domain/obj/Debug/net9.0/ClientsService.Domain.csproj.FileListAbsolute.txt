@@ -5,8 +5,8 @@ C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsServ
 C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Domain\obj\Debug\net9.0\ClientsService.Domain.AssemblyInfoInputs.cache
 C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Domain\obj\Debug\net9.0\ClientsService.Domain.AssemblyInfo.cs
 C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Domain\obj\Debug\net9.0\ClientsService.Domain.csproj.CoreCompileInputs.cache
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Domain\obj\Debug\net9.0\ClientsService.Domain.sourcelink.json
 C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Domain\obj\Debug\net9.0\ClientsService.Domain.dll
 C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Domain\obj\Debug\net9.0\refint\ClientsService.Domain.dll
 C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Domain\obj\Debug\net9.0\ClientsService.Domain.pdb
 C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Domain\obj\Debug\net9.0\ref\ClientsService.Domain.dll
-C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.Domain\obj\Debug\net9.0\ClientsService.Domain.sourcelink.json

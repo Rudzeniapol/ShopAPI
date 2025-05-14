@@ -32,7 +32,7 @@ public class AuthController : ControllerBase
         return Ok(tokens);
     }
     
-    [HttpPost("refresh")]
+    [HttpPost("refreshTokens")]
     public async Task<IActionResult> Refresh([FromBody] RefreshTokenCommand command)
     {
         var result = await _mediator.Send(command);

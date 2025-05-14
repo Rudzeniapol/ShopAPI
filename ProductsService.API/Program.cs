@@ -6,29 +6,32 @@ using ProductsService.API.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.ConfigureDependencyInjection();
-builder.Services.ConfigureDatabaseContext(builder.Configuration);
-builder.Services.ConfigureAuthentication(builder.Configuration);
-builder.Services.ConfigureAuthorization();
-builder.Services.ConfigureAutoMapper();
-//builder.Services.ConfigureValidation();
-//builder.Services.ConfigureRequestServices();
-builder.Services.ConfigureCors();
-builder.Services.AddMemoryCache();
-builder.Services.AddAuthorization();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.ConfigureSwagger();
-builder.Services.AddControllers();
+// Проверяем, находимся ли мы в тестовом окружении
+var isTestEnvironment = builder.Environment.EnvironmentName == "Testing";
 
 // Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-var app = builder.Build();
-    
-using (var scope = app.Services.CreateScope())
+builder.Services.AddControllers();
+builder.Services.ConfigureAuthentication(builder.Configuration);
+builder.Services.ConfigureSwagger();
+builder.Services.ConfigureAuthorization();
+builder.Services.ConfigureDependencyInjection();
+builder.Services.ConfigureAutoMapper();
+builder.Services.ConfigureCors();
+
+// Настраиваем контекст базы данных
+if (isTestEnvironment)
 {
-    var dbContext = scope.ServiceProvider.GetRequiredService<ProductsDbContext>();
-    dbContext.Database.Migrate();
+    builder.Services.AddDbContext<ProductsDbContext>(options =>
+    {
+        options.UseInMemoryDatabase($"TestDb_{Guid.NewGuid()}");
+    });
 }
+else
+{
+    builder.Services.ConfigureDatabaseContext(builder.Configuration);
+}
+
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())
@@ -36,14 +39,22 @@ using (var scope = app.Services.CreateScope())
     app.UseSwagger();
     app.UseSwaggerUI();
 //}
+
+app.UseHttpsRedirection();
 app.UseCors("AllowAll");
 app.UseMiddleware<ExceptionMiddleware>();
-
-//app.UseStaticFiles(); <--- Dont need it for now
 app.UseAuthentication();
 app.UseAuthorization();
-
-//app.UseHttpsRedirection();
-
 app.MapControllers();
+
+// Применяем миграции только если не в тестовом окружении
+if (!isTestEnvironment)
+{
+    using var scope = app.Services.CreateScope();
+    var dbContext = scope.ServiceProvider.GetRequiredService<ProductsDbContext>();
+    dbContext.Database.Migrate();
+}
+
 app.Run();
+
+public partial class Program { } 

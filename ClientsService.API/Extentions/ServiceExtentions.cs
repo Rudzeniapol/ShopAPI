@@ -70,8 +70,14 @@ public static class ServiceExtentions
     
     public static IServiceCollection ConfigureDatabaseContext(this IServiceCollection services, IConfiguration configuration)
     {
-        var connectionString = configuration.GetConnectionString("DefaultConnection");
-        services.AddDbContext<ClientsDbContext>(options => options.UseSqlServer(connectionString));
+        var useInMemory = configuration.GetValue<bool>("UseInMemoryDatabase");
+        
+        if (!useInMemory)
+        {
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<ClientsDbContext>(options => options.UseSqlServer(connectionString));
+        }
+        
         return services;
     }
     

@@ -77,12 +77,18 @@ public static class ServiceExtentions
     
     public static IServiceCollection ConfigureDatabaseContext(this IServiceCollection services, IConfiguration configuration)
     {
-        var connectionString = configuration.GetConnectionString("DefaultConnection");
-        services.AddDbContext<ProductsDbContext>((sp, options) =>
+        var useInMemory = configuration.GetValue<bool>("UseInMemoryDatabase");
+        
+        if (!useInMemory)
         {
-            options.UseSqlServer(connectionString)
-                .AddInterceptors(sp.GetRequiredService<SoftDeleteInterceptor>());
-        });
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<ProductsDbContext>((sp, options) =>
+            {
+                options.UseSqlServer(connectionString)
+                    .AddInterceptors(sp.GetRequiredService<SoftDeleteInterceptor>());
+            });
+        }
+        
         return services;
     }
     
