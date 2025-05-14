@@ -22,7 +22,7 @@ public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, T
 
     public async Task<TokenDTO> Handle(RegisterUserCommand request, CancellationToken cancellationToken = default)
     {
-        var user = await _userRepository.GetUserByEmailAsync(request.RegisterUser.Email);
+        var user = await _userRepository.GetUserByEmailAsync(request.RegisterUser.Email, cancellationToken);
         if (user != null)
         {
             throw new EntityExistsException("User with this email already exists");
@@ -37,6 +37,7 @@ public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, T
             IsActivated = true
         };
         await _userRepository.AddAsync(newUser, cancellationToken);
+        
         return await _tokenService.GenerateJwtToken(newUser, false, cancellationToken);
     }
 }

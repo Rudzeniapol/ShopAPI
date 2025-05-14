@@ -1,4 +1,5 @@
-﻿using ClientsService.Application.DTOs;
+﻿using System.Security.Authentication;
+using ClientsService.Application.DTOs;
 using ClientsService.Application.Exceptions;
 using ClientsService.Application.Services.Interfaces;
 using ClientsService.Domain.Interfaces;
@@ -22,10 +23,16 @@ public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, TokenDT
     public async Task<TokenDTO> Handle(LoginUserCommand request, CancellationToken cancellationToken)
     {
         var user = await _userRepository.GetUserByEmailAsync(request.LoginUser.Email, cancellationToken);
-        if (user == null || !_passwordService.VerifyPassword(user.PasswordHash, request.LoginUser.Password))
+        if (user == null)
         {
             throw new NotFoundException("Invalid login information");
         }
+        
+        if (!_passwordService.VerifyPassword(user.PasswordHash, request.LoginUser.Password))
+        {
+            throw new BadRequestException("Invalid login information");
+        }
+        
         return await _tokenService.GenerateJwtToken(user, true, cancellationToken);
     }
 }

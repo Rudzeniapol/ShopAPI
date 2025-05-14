@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Net;
+using System.Security.Authentication;
 using ClientsService.Application.Exceptions;
 using FluentValidation;
 using Microsoft.IdentityModel.Tokens;
@@ -56,6 +57,13 @@ public class ExceptionMiddleware
             ConfigureResponse(context,
                 (int)HttpStatusCode.InternalServerError,
                 new { error = "Product service unavailable", code = 500, details = ex.Message },
+                ex.Message);
+        }
+        catch (AuthenticationException ex)
+        {
+            ConfigureResponse(context,
+                (int)HttpStatusCode.Unauthorized,
+                new { error = "Authentication error", code = 401, details = ex.Message },
                 ex.Message);
         }
         catch (SecurityTokenException ex)

@@ -8,6 +8,7 @@ public class User
     public string Role { get; set; } = "user";
     public string Email { get; set; } = string.Empty;
     public string? RefreshToken { get; set; }
+
     
     //Do I even need this field below?
     public DateTime RefreshTokenExpiryTime { get; set; }

@@ -183,3 +183,6 @@ C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsServ
 C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.API\bin\Debug\net9.0\FluentValidation.AspNetCore.dll
 C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.API\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.API\bin\Debug\net9.0\Hellang.Middleware.ProblemDetails.dll
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.API\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.API\bin\Debug\net9.0\SendGrid.dll
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ClientsService.API\bin\Debug\net9.0\StarkbankEcdsa.dll

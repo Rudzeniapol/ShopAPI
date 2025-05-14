@@ -17,7 +17,7 @@ public class LoginUserCommandHandlerTests
     public async Task Handle_ShouldReturnToken_WhenCredentialsValid()
     {
         var loginDto = new LoginUserDTO { Email = "test@example.com", Password = "pass" };
-        var user = new User { Email = loginDto.Email, PasswordHash = "hash" };
+        var user = new User { Email = loginDto.Email, PasswordHash = "hash"};
 
         _userRepositoryMock.Setup(r => r.GetUserByEmailAsync(loginDto.Email, It.IsAny<CancellationToken>()))
             .ReturnsAsync(user);
