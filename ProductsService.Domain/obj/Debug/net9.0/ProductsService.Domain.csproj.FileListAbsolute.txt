@@ -1,0 +1,12 @@
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ProductsService.Domain\bin\Debug\net9.0\ProductsService.Domain.deps.json
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ProductsService.Domain\bin\Debug\net9.0\ProductsService.Domain.dll
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ProductsService.Domain\bin\Debug\net9.0\ProductsService.Domain.pdb
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ProductsService.Domain\obj\Debug\net9.0\ProductsService.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ProductsService.Domain\obj\Debug\net9.0\ProductsService.Domain.AssemblyInfoInputs.cache
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ProductsService.Domain\obj\Debug\net9.0\ProductsService.Domain.AssemblyInfo.cs
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ProductsService.Domain\obj\Debug\net9.0\ProductsService.Domain.csproj.CoreCompileInputs.cache
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ProductsService.Domain\obj\Debug\net9.0\ProductsService.Domain.sourcelink.json
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ProductsService.Domain\obj\Debug\net9.0\ProductsService.Domain.dll
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ProductsService.Domain\obj\Debug\net9.0\refint\ProductsService.Domain.dll
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ProductsService.Domain\obj\Debug\net9.0\ProductsService.Domain.pdb
+C:\Users\ffgg9\OneDrive\Desktop\Infinite Learning\TestTasks\InnoShop\ProductsService.Domain\obj\Debug\net9.0\ref\ProductsService.Domain.dll

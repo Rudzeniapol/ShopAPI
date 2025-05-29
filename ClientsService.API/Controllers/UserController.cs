@@ -1,6 +1,7 @@
 ﻿using ClientsService.Application.Commands;
 using ClientsService.Application.DTOs;
 using ClientsService.Application.Queries;
+using ClientsService.Application.Services;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -88,5 +89,14 @@ public class UserController : ControllerBase
         };
         await _mediator.Send(command, cancellationToken);
         return NoContent();
+    }
+
+    [Authorize(Policy = "AllUsers")]
+    [HttpGet("guid-demo")]
+    public ActionResult<string> GetGuidDemo()
+    {
+        // Демонстрация использования Singleton
+        var guid = GuidGeneratorSingleton.Instance.GenerateGuid();
+        return Ok($"Generated GUID from Singleton: {guid}");
     }
 }
